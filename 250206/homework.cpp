@@ -95,16 +95,16 @@ void PrintMonster(tObject tMonster) {
 }
 
 void PlayerInput(tObject* pPlayer, GAME* game) {
-	int sInput(0);
+	int iInput(0);
 	cout << "직업을 선택하세요(1. 전사 2. 마법사 3. 도적) : ";
-	cin >> sInput;
+	cin >> iInput;
 	*game = PLAY;
-	switch (sInput)
+	switch (iInput)
 	{
 	case 1:
 	case 2:
 	case 3:
-		(*pPlayer).iJob = sInput;
+		(*pPlayer).iJob = iInput;
 		PlayerReset(pPlayer);
 		break;
 	default:
@@ -129,10 +129,10 @@ void PlayerReset(tObject* pPlayer) {
 }
 
 void Play(GAME* game) {
-	int sInput(0);
+	int iInput(0);
 	cout << "1. 사냥터 2. 종료 :";
-	cin >> sInput;
-	switch (sInput)
+	cin >> iInput;
+	switch (iInput)
 	{
 	case 1:
 		*game = MONSTER;
@@ -144,11 +144,11 @@ void Play(GAME* game) {
 }
 
 void ChoiceMonster(tObject* pMonster, GAME* game) {
-	int sInput(0);
+	int iInput(0);
 	cout << "1. 초급 2. 중급 3. 고급 4. 전 단계 :";
-	cin >> sInput;
+	cin >> iInput;
 	*game = FIGHT;
-	switch (sInput)
+	switch (iInput)
 	{
 	case 1:
 		*pMonster = { 1, 30, 3 };
@@ -169,10 +169,10 @@ void ChoiceMonster(tObject* pMonster, GAME* game) {
 }
 
 void Fight(tObject* pPlayer, tObject* pMonster, GAME* game) {
-	int sInput(0);
+	int iInput(0);
 	cout << "1. 공격 2. 도망 : ";
-	cin >> sInput;
-	switch (sInput)
+	cin >> iInput;
+	switch (iInput)
 	{
 	case 1:
 		(*pPlayer).iHp -= (*pMonster).iAtk;
