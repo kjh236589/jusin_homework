@@ -8,10 +8,6 @@ struct tObject {
 	int iAtk;
 };
 
-void PrintPlayer(tObject tPlayer);
-
-void PrintMonster(tObject tMonster);
-
 enum GAME {
 	START,
 	PLAY,
@@ -20,49 +16,50 @@ enum GAME {
 	END
 };
 
-void PlayerInput(tObject* tPlayer, GAME* game);
+void PrintObject(tObject tObject);
 
-void PlayerReset(tObject* tPlayer);
+tObject PlayerInput(GAME* game);
+
+tObject PlayerReset(int iJob);
 
 void Play(GAME* game);
 
-void ChoiceMonster(tObject* tMonster,GAME* game);
+tObject ChoiceMonster(GAME* game);
 
 void Fight(tObject* tPlayer, tObject* tMonster, GAME* game);
 
 int main() {
 	GAME game = START;
 	tObject tPlayer = {}, tMonster = {};
-	while (1)
+	while (END != game)
 	{
+		system("cls");
 		switch (game) {
 		case START:
-			PlayerInput(&tPlayer, &game);
+			tPlayer = PlayerInput(&game);
 			break;
 		case PLAY:
-			PrintPlayer(tPlayer);
+			PrintObject(tPlayer);
 			Play(&game);
 			break;
 		case MONSTER:
-			PrintPlayer(tPlayer);
-			ChoiceMonster(&tMonster, &game);
+			PrintObject(tPlayer);
+			tMonster = ChoiceMonster(&game);
 			break;
 		case FIGHT:
-			PrintPlayer(tPlayer);
-			PrintMonster(tMonster);
+			PrintObject(tPlayer);
+			PrintObject(tMonster);
 			Fight(&tPlayer, &tMonster, &game);
 			break;
-		case END:
-			return 0;
 		}
-		system("cls");
 	}
+	cout << "게임 종료!" << endl;
 	return 0;
 }
 
-void PrintPlayer(tObject tPlayer) {
+void PrintObject(tObject tObject) {
 	cout << "=============================" << endl << "이름 : ";
-	switch (tPlayer.iJob)
+	switch (tObject.iJob)
 	{
 	case 1:
 		cout << "전사" << endl;
@@ -73,59 +70,54 @@ void PrintPlayer(tObject tPlayer) {
 	case 3:
 		cout << "도적" << endl;
 		break;
-	}
-	cout << "체력 : " << tPlayer.iHp << "\t공격력 : " << tPlayer.iAtk << endl;
-}
-
-void PrintMonster(tObject tMonster) {
-	cout << "=============================" << endl << "이름 : ";
-	switch (tMonster.iJob)
-	{
-	case 1:
+	case 4:
 		cout << "초급" << endl;
 		break;
-	case 2:
+	case 5:
 		cout << "중급" << endl;
 		break;
-	case 3:
+	case 6:
 		cout << "고급" << endl;
 		break;
 	}
-	cout << "체력 : " << tMonster.iHp << "\t공격력 : " << tMonster.iAtk << endl;
+	cout << "체력 : " << tObject.iHp << "\t공격력 : " << tObject.iAtk << endl;
 }
 
-void PlayerInput(tObject* pPlayer, GAME* game) {
+tObject PlayerInput(GAME* game) {
 	int iInput(0);
 	cout << "직업을 선택하세요(1. 전사 2. 마법사 3. 도적) : ";
 	cin >> iInput;
 	*game = PLAY;
+	tObject tPlayer = {};
 	switch (iInput)
 	{
 	case 1:
 	case 2:
 	case 3:
-		(*pPlayer).iJob = iInput;
-		PlayerReset(pPlayer);
+		tPlayer = PlayerReset(iInput);
 		break;
 	default:
 		*game = START;
 		break;
 	}
+	return tPlayer;
 }
 
-void PlayerReset(tObject* pPlayer) {
-	switch ((*pPlayer).iJob)
+tObject PlayerReset(int iJob) {
+	tObject tPlayer = {};
+	switch (iJob)
 	{
 	case 1:
-		*pPlayer = { 1, 100, 10 };
+		tPlayer = { 1, 100, 10 };
 		break;
 	case 2:
-		*pPlayer = { 2, 50, 30 };
+		tPlayer = { 2, 50, 30 };
 		break;
 	case 3:
-		*pPlayer = { 3, 80, 15 };
+		tPlayer = { 3, 80, 15 };
 		break;
 	}
+	return tPlayer;
 }
 
 void Play(GAME* game) {
@@ -143,21 +135,22 @@ void Play(GAME* game) {
 	}
 }
 
-void ChoiceMonster(tObject* pMonster, GAME* game) {
+tObject ChoiceMonster(GAME* game) {
 	int iInput(0);
 	cout << "1. 초급 2. 중급 3. 고급 4. 전 단계 :";
 	cin >> iInput;
 	*game = FIGHT;
+	tObject tMonster = {};
 	switch (iInput)
 	{
 	case 1:
-		*pMonster = { 1, 30, 3 };
+		tMonster = { 4, 30, 3 };
 		break;
 	case 2:
-		*pMonster = { 2, 60, 6 };
+		tMonster = { 5, 60, 6 };
 		break;
 	case 3:
-		*pMonster = { 3, 90, 9 };
+		tMonster = { 6, 90, 9 };
 		break;
 	case 4:
 		*game = PLAY;
@@ -166,6 +159,7 @@ void ChoiceMonster(tObject* pMonster, GAME* game) {
 		*game = MONSTER;
 		break;
 	}
+	return tMonster;
 }
 
 void Fight(tObject* pPlayer, tObject* pMonster, GAME* game) {
@@ -175,22 +169,22 @@ void Fight(tObject* pPlayer, tObject* pMonster, GAME* game) {
 	switch (iInput)
 	{
 	case 1:
-		(*pPlayer).iHp -= (*pMonster).iAtk;
-		(*pMonster).iHp -= (*pPlayer).iAtk;
+		pPlayer->iHp -= pMonster->iAtk;
+		pMonster->iHp -= pPlayer->iAtk;
+		if (pPlayer->iHp <= 0) {
+			cout << "플레이어 사망" << endl;
+			(*pPlayer) = PlayerReset(pPlayer->iJob);
+			*game = MONSTER;
+			system("pause");
+		}
+		else if ((*pMonster).iHp <= 0) {
+			cout << "승리" << endl;
+			*game = MONSTER;
+			system("pause");
+		}
 		break;
 	case 2:
 		*game = MONSTER;
 		break;
-	}
-	if ((*pPlayer).iHp <= 0) {
-		cout << "플레이어 사망" << endl;
-		PlayerReset(pPlayer);
-		*game = MONSTER;
-		system("pause");
-	}
-	else if ((*pMonster).iHp <= 0) {
-		cout << "승리" << endl;
-		*game = MONSTER;
-		system("pause");
 	}
 }
