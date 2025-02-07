@@ -18,5 +18,11 @@
     <ClCompile Include="calloc.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="메모리 함수.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="전처리기.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
