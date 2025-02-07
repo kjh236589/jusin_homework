@@ -23,6 +23,11 @@ delete p;\
 p = nullptr;\
 }
 
+#define SAFE_DELETE_B(p)	if(p){\
+delete[]p;\
+p = nullptr;\
+}
+
 // 조건부 컴파일
 
 using namespace std;
