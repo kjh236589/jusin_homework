@@ -22,6 +22,8 @@ int main()
 				*image = fgetc(pLoadImage);
 				fwrite(image, sizeof(*image), 1, pCopyImage);
 			}
+			delete image;
+			image = nullptr;
 		}
 		else
 			cout << "복사 실패" << endl;
