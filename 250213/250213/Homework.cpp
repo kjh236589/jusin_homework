@@ -77,6 +77,7 @@ public:
 	}
 
 	void PrintStudents() {
+		system("cls");
 		for (int i =0; i < iSize; i++) {
 			pStudents[i].Print();
 		}
