@@ -16,11 +16,11 @@ int main()
 		if (0 == errSave)
 		{
 			cout << "이미지 복사 성공" << endl;
-			char image[1] = {};
+			char* image = new char;
 			while (0 == feof(pLoadImage))
 			{
-				image[0] = fgetc(pLoadImage);
-				fwrite(image, sizeof(image), 1, pCopyImage);
+				*image = fgetc(pLoadImage);
+				fwrite(image, sizeof(*image), 1, pCopyImage);
 			}
 		}
 		else

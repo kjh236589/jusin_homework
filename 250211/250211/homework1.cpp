@@ -54,8 +54,7 @@ int main()
 	errno_t errSave = fopen_s(&pSaveFile, "../Data/Save.dat", "wb");
 	if (0 == errSave)
 	{
-		Object Save[1] = { *oPlayer };
-		fwrite(Save, sizeof(Save), 1, pSaveFile);
+		fwrite(oPlayer, sizeof(*oPlayer), 1, pSaveFile);
 	}
 	else {
 		cout << "세이브 실패" << endl;
@@ -71,7 +70,6 @@ Object* CreatePlayer() {
 	Object* oPlayer = new Object();
 	int iInput(0);
 	char szName[32] = {};
-	Object oSave[1] = {};
 	FILE* pLoadSave = NULL;
 	errno_t errLoad = fopen_s(&pLoadSave, "../Data/Save.dat", "rb");
 	while (true)
@@ -96,8 +94,7 @@ Object* CreatePlayer() {
 		case 4:
 			if (0 == errLoad)
 			{
-				fread(oSave, sizeof(oSave), 1, pLoadSave);
-				oPlayer->SetObject(oSave[0].szName, oSave[0].iMaxHp, oSave[0].iHp, oSave[0].iAtk);
+				fread(oPlayer, sizeof(*oPlayer), 1, pLoadSave);
 			}
 			else {
 				cout << "세이브 로드 실패" << endl;
