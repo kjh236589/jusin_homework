@@ -25,12 +25,18 @@ int main()
 			delete image;
 			image = nullptr;
 		}
-		else
+		else {
 			cout << "복사 실패" << endl;
-		fclose(pCopyImage);
+		}
+		if (pCopyImage) {
+			fclose(pCopyImage);
+		}
 	}
-	else
+	else {
 		cout << "이미지 로드 실패" << endl;
-	fclose(pLoadImage);
+	}
+	if (pLoadImage) {
+		fclose(pLoadImage);
+	}
 	return 0;
 }

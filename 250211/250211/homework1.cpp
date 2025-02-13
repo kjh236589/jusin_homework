@@ -15,13 +15,6 @@ public:
 		Reset();
 	}
 
-	void SetObject(char szname[32], int imaxhp,  int ihp, int iatk) {
-		strcpy_s(szName, sizeof(szName), szname);
-		iMaxHp = imaxhp;
-		iHp = ihp;
-		iAtk = iatk;
-	}
-
 	void Reset() {
 		iHp = iMaxHp;
 	}
@@ -33,13 +26,13 @@ public:
 
 Object* CreatePlayer();
 
+Object* CreateMonster(int iInput);
+
 void Print(Object* oObject);
 
 void PlayGame(Object* oPlayer);
 
 void Choise(Object* oPlayer);
-
-Object* CreateMonster(int iInput);
 
 void Fight(Object* oPlayer, Object* oMonster);
 
@@ -58,9 +51,10 @@ int main()
 	}
 	else {
 		cout << "세이브 실패" << endl;
-		system("pause");
 	}
-	fclose(pSaveFile);
+	if (NULL != pSaveFile) {
+		fclose(pSaveFile);
+	}
 	delete oPlayer;
 	oPlayer = nullptr;
 	return 0;
@@ -98,15 +92,20 @@ Object* CreatePlayer() {
 			}
 			else {
 				cout << "세이브 로드 실패" << endl;
+				system("pause");
+				continue;
 			}
 			break;
 		case 5:
 			break;
 		default:
 			cout << "잘못된 입력입니다. 다시 입력해주세요." << endl;
+			system("pause");
 			continue;
 		}
-		fclose(pLoadSave);
+		if (NULL != pLoadSave) {
+			fclose(pLoadSave);
+		}
 		return oPlayer;
 	}
 }
