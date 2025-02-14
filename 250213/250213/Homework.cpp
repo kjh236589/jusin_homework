@@ -2,19 +2,22 @@
 
 class CStudent {
 private:
-	char szName[32] = {};
+	char szName[32];
 	int iKor, iMath, iEng, iTotal;
 	float fAvg;
 public:
-	CStudent() {
-		iKor = iMath = iEng = iTotal = 0;
-		fAvg = 0.f;
-	}
+    CStudent() {
+       szName[0] = '\0';
+       iKor = iMath = iEng = iTotal = 0;
+       fAvg = 0.f;
+    }
 
 	void InputStudent() {
 		system("cls");
-		cout << "성적을 입력하세요(이름, 국어, 수학, 영어) : ";
-		cin >> szName >> iKor >> iMath >> iEng;
+		cout << "이름을 입력하세요 : ";
+		cin >> szName;
+		cout << "성적을 입력하세요(국어, 수학, 영어) : ";
+		cin >> iKor >> iMath >> iEng;
 		iTotal = iKor + iMath + iEng;
 		fAvg = (float)iTotal / 3.f;
 	}
@@ -30,20 +33,18 @@ public:
 	}
 
 	bool Search(char szname[32]) {
-		for (int i = 0; i < 32; ++i) {
-			if (szName[i] != szname[i]) {
-				return false;
-			}
+		if (!strcmp(szName, szname)) {
+			Print();
+			return true;
 		}
-		Print();
-		return true;
+		return false;
 	}
 };
 
 class CStudents {
 private:
-	CStudent* pStudents;
 	int iSize;
+	CStudent* pStudents;
 public:
 	CStudents() {
 		iSize = 0;
@@ -66,9 +67,7 @@ public:
 		}
 		else {
 			CStudent* newStudents = new CStudent[iSize + 1];
-			for (int i = 0; i < iSize; i++) {
-				newStudents[i] = pStudents[i];
-			}
+			memcpy(pStudents, newStudents, iSize);
 			delete[] pStudents;
 			pStudents = newStudents;
 			pStudents[iSize].InputStudent();
