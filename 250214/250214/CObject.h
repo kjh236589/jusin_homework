@@ -1,6 +1,5 @@
 #pragma once
 #include "Define.h"
-#include "CPlayer.h"
 
 class CObject
 {
@@ -10,7 +9,14 @@ public:
 	void Initialize();
 	void Update();
 	void Release();
+	void Reset();
+	void Print();
+	void Save();
+	bool Load();
+	bool CreatePlayer();
+	bool CreateMonster();
 	bool Damage(int iDmg);
+	int GetDamage();
 private:
 	INFO* pObject;
 };

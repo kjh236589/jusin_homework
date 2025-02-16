@@ -3,14 +3,16 @@
 
 class CObject;
 
-class CPlayer
+class CGame
 {
 public:
-	CPlayer();
-	~CPlayer();
+	CGame();
+	~CGame();
 	void		Initialize();
 	void		Update();
 	void		Release();
+	void		Game();
+	void		Fight();
 private:
 	CObject* pPlayer;
 	CObject* pMonster;
