@@ -10,43 +10,53 @@ String::String()
 
 String::~String()
 {
+	Release();
 }
 
-String& String::operator=(const char* cArray)
+void String::Release()
 {
 	SAFE_DELETE_ARRAY(str);
-	iSize = 0;
-	while (true) {
-		if (cArray[iSize++] == NULL) {
-			break;
-		}
-	}
+}
+
+String& String::operator=(const char* pString)
+{
+	Release();
+	iSize = (int)strlen(pString) + 1;
 	str = new char[iSize];
-	strcpy_s(str, iSize, cArray);
+	strcpy_s(str, iSize, pString);
 	return *this;
 }
 
-String String::operator+(const char* cArray)
+String& String::operator=(String& string)
 {
-	String newStr;
-	int iCount(0);
-	while (true) {
-		if (cArray[iCount++] == NULL) {
-			break;
-		}
-	}
-	char* cStr = new char[iSize + iCount - 1];
-	strcpy_s(cStr, iSize, str);
-	iSize += iCount - 1;
-	strcat_s(cStr, iSize, cArray);
-	newStr = cStr;
-	SAFE_DELETE_ARRAY(cStr);
-	return newStr;
+	Release();
+	iSize = (int)strlen(string()) + 1;
+	str = new char[iSize];
+	strcpy_s(str, iSize, string());
+	return *this;
 }
 
-bool String::operator==(const char* cArray)
+char* String::operator+(const char* pString)
 {
-	return strcmp(str, cArray) == 0;
+	iSize += (int)strlen(pString) + 1;
+	char* cStr = new char[iSize];
+	strcpy_s(cStr, iSize, str);
+	strcat_s(cStr, iSize, pString);
+	return cStr;
+}
+
+char* String::operator+(String& string)
+{
+	iSize += (int)strlen(string()) + 1;
+	char* cStr = new char[iSize];
+	strcpy_s(cStr, iSize, str);
+	strcat_s(cStr, iSize, string());
+	return cStr;
+}
+
+bool String::operator==(const char* pString)
+{
+	return !strcmp(str, pString);
 }
 
 char* String::operator()() {

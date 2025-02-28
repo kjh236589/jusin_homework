@@ -4,9 +4,12 @@ class String
 public :
 	String();
 	~String();
-	String& operator =(const char* cArray);
-	String operator +(const char* cArray);
-	bool operator ==(const char* cArray);
+	void Release();
+	String& operator =(const char* pString);
+	String& operator =(String& string);
+	char* operator +(const char* pString);
+	char* operator +(String& string);
+	bool operator ==(const char* pString);
 	char* operator()();
 private:
 	char* str;
