@@ -1,2 +1,5 @@
-﻿  vector 메모리 정책.cpp
-  250304.vcxproj -> D:\유준환\154기\250304\x64\Debug\250304.exe
+﻿  homework.cpp
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\250304\250304\homework.cpp(32,28): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/homework.cpp'을(를) 컴파일하는 중)
+  
+  250304.vcxproj -> C:\Users\kjh23\OneDrive\바탕 화면\쥬신\250304\x64\Debug\250304.exe
