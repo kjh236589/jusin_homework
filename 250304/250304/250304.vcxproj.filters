@@ -15,10 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="250304.cpp">
+    <ClCompile Include="vector.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="반복자.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="vector 메모리 정책.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
