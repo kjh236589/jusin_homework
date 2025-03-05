@@ -1,3 +1,5 @@
+#include<string>
+
 template<typename T>
 void SAFE_DELETE(T& p) {
 	if (p) {
@@ -20,13 +22,23 @@ enum ITEM_TYPE {
 	POTION
 };
 
+enum GAME {
+	HOME,
+	ADVENTURE,
+	SHOP,
+	INVENTORY,
+	FIGHT,
+	END
+};
+
 typedef struct sObj {
-	char szName[32] = {};
+	string szName;
 	int iHp;
 	int iAtk;
 }OBJ;
 
 typedef struct sItem {
-	char szName[32] = {};
+	string szName;
 	int iStat;
+	ITEM_TYPE type;
 }ITEM;

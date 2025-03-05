@@ -1,28 +1,16 @@
 #pragma once
 #include "pch.h"
-#include "define.h"
+#include "Define.h"
 class CObj
 {
 public:
-	CObj() {
-
-	}
-	~CObj() {
-
-	}
-
-	void Print() {
-		cout << "이름 : " << obj.szName << endl << "HP : " << obj.iHp << endl << "공격력 : " << obj.iAtk << endl;
-	}
-
-	bool Damage(CObj* p_enemy) {
-		obj.iHp -= p_enemy->obj.iAtk;
-		if (0 >= obj.iHp) {
-			return true;
-		}
-		return false;
-	}
-private:
+	CObj();
+	CObj(string szName, int iHp, int iAtk);
+	~CObj();
+	virtual void Print();
+	virtual bool Damage(OBJ enemy);
+	OBJ& GetObj();
+protected:
 	OBJ obj;
 };
 

@@ -39,6 +39,27 @@
     <ClCompile Include="CObj.cpp">
       <Filter>TEXT_RPG</Filter>
     </ClCompile>
+    <ClCompile Include="CPlayer.cpp">
+      <Filter>TEXT_RPG</Filter>
+    </ClCompile>
+    <ClCompile Include="String.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonster.cpp">
+      <Filter>TEXT_RPG</Filter>
+    </ClCompile>
+    <ClCompile Include="CMainGame.cpp">
+      <Filter>TEXT_RPG</Filter>
+    </ClCompile>
+    <ClCompile Include="homework2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CShop.cpp">
+      <Filter>TEXT_RPG</Filter>
+    </ClCompile>
+    <ClCompile Include="CInventory.cpp">
+      <Filter>TEXT_RPG</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -48,6 +69,24 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="CObj.h">
+      <Filter>TEXT_RPG</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayer.h">
+      <Filter>TEXT_RPG</Filter>
+    </ClInclude>
+    <ClInclude Include="String.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonster.h">
+      <Filter>TEXT_RPG</Filter>
+    </ClInclude>
+    <ClInclude Include="CMainGame.h">
+      <Filter>TEXT_RPG</Filter>
+    </ClInclude>
+    <ClInclude Include="CShop.h">
+      <Filter>TEXT_RPG</Filter>
+    </ClInclude>
+    <ClInclude Include="CInventory.h">
       <Filter>TEXT_RPG</Filter>
     </ClInclude>
   </ItemGroup>
