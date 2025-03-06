@@ -5,6 +5,7 @@ CMainGame::CMainGame()
 {
 	m_pPlayer = nullptr;
 	m_pMonster = nullptr;
+	m_pShop = nullptr;
 	Game = HOME;
 }
 
@@ -136,30 +137,30 @@ void CMainGame::Adventure()
 void CMainGame::Shop()
 {
 	int iInput(0);
-	SAFE_DELETE(shop);
-	shop = new CShop();
+	SAFE_DELETE(m_pShop);
+	m_pShop = new CShop();
 	cout << "1. 초급상점 2. 중급상점 3. 고급상점 4. 나가기 : ";
 	cin >> iInput;
-	shop->Initialize(m_pPlayer);
+	m_pShop->Initialize(m_pPlayer);
 	switch (iInput)
 	{
 	case 1:
-		shop->AddItem("초급무기", 5, WEAPONE);
-		shop->AddItem("초급갑옷", 3, ARMOR);
-		shop->AddItem("초급포션", 10, POTION);
-		shop->Update();
+		m_pShop->AddItem("초급무기", 5, WEAPONE);
+		m_pShop->AddItem("초급갑옷", 3, ARMOR);
+		m_pShop->AddItem("초급포션", 10, POTION);
+		m_pShop->Update();
 		break;
 	case 2:
-		shop->AddItem("중급무기", 10, WEAPONE);
-		shop->AddItem("중갑옷", 6, ARMOR);
-		shop->AddItem("중급포션", 20, POTION);
-		shop->Update();
+		m_pShop->AddItem("중급무기", 10, WEAPONE);
+		m_pShop->AddItem("중갑옷", 6, ARMOR);
+		m_pShop->AddItem("중급포션", 20, POTION);
+		m_pShop->Update();
 		break;
 	case 3:
-		shop->AddItem("고급무기", 15, WEAPONE);
-		shop->AddItem("고급갑옷", 9, ARMOR);
-		shop->AddItem("고급포션", 30, POTION);
-		shop->Update();
+		m_pShop->AddItem("고급무기", 15, WEAPONE);
+		m_pShop->AddItem("고급갑옷", 9, ARMOR);
+		m_pShop->AddItem("고급포션", 30, POTION);
+		m_pShop->Update();
 		break;
 	case 4:
 		Game = HOME;

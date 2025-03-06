@@ -33,12 +33,12 @@ enum GAME {
 
 typedef struct sObj {
 	string szName;
-	int iHp;
-	int iAtk;
+	int iHp = 0;
+	int iAtk = 0;
 }OBJ;
 
 typedef struct sItem {
 	string szName;
-	int iStat;
+	int iStat = 0;
 	ITEM_TYPE type;
 }ITEM;

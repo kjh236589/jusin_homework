@@ -9,7 +9,7 @@ String::String()
 
 String::String(const String& copy)
 {
-	int iSize(strlen(copy.string) + 1);
+	int iSize(static_cast<int>(strlen(copy.string)) + 1);
 	string = new char[iSize];
 	strcpy_s(string, iSize, copy.string);
 }
@@ -21,13 +21,13 @@ String::~String()
 
 void String::Release()
 {
-	SAFE_DELETE_ARRAY(string);
+	SAFE_DELETE_ARRAY<char*>(string);
 }
 
 String& String::operator=(const char* pString)
 {
 	Release();
-	int iSize(strlen(pString) + 1);
+	int iSize(static_cast<int>(strlen(pString)) + 1);
 	string = new char[iSize];
 	strcpy_s(string, iSize, pString);
 	return *this;
@@ -35,7 +35,7 @@ String& String::operator=(const char* pString)
 
 char* String::operator+(const char* pString)
 {
-	int iSize(strlen(string) + strlen(pString));
+	int iSize(static_cast<int>(strlen(string)) + static_cast<int>(strlen(pString)));
 	char* str = new char[iSize];
 	strcpy_s(str, iSize, string);
 	strcat_s(str, iSize, pString);

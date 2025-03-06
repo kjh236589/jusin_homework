@@ -9,6 +9,13 @@ typedef struct sInfo {
 
 class School {
 public:
+	~School() {
+		Release();
+	}
+	void Release() {
+		vecStudents.clear();
+		vector<INFO>().swap(vecStudents);
+	}
 	void AddStudents() {
 		system("cls");
 		int iInput(0);
@@ -40,20 +47,16 @@ public:
 		for (vector<INFO>::iterator iter = vecStudents.begin();
 			iter != vecStudents.end(); ++iter)
 		{
-			cout << "이름 : " << (*iter).szName << endl << "수학 : " << (*iter).iMath << endl 
-				<< "국어 : " << (*iter).iKor << endl << "영어 : " << (*iter).iEng << endl 
-				<< "총점 : " << (*iter).iSum << endl << "평균 : " << (*iter).fAvg << endl 
-				<< "==========================" << endl;
+			Print(iter);
+			cout << "==========================" << endl;
 		}
 		system("pause");
 	}
 
 	void Print(vector<INFO>::iterator iter) {
-		system("cls");
 		cout << "이름 : " << (*iter).szName << endl << "수학 : " << (*iter).iMath << endl
 			<< "국어 : " << (*iter).iKor << endl << "영어 : " << (*iter).iEng << endl
 			<< "총점 : " << (*iter).iSum << endl << "평균 : " << (*iter).fAvg << endl;
-		system("pause");
 	}
 
 	void Search() {
@@ -66,7 +69,9 @@ public:
 			iter != vecStudents.end(); ++iter)
 		{
 			if (!strcmp(name, (*iter).szName)) {
+				system("cls");
 				Print(iter);
+				system("pause");
 				return;
 			}
 		}

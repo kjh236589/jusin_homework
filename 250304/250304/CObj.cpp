@@ -17,7 +17,7 @@ CObj::~CObj()
 }
 
 void CObj::Print(){
-	cout << "이름 : " << obj.szName << endl << "HP : " << obj.iHp << endl << "공격력 : " << obj.iAtk << endl << "==================================" << endl;
+	cout << "이름 : " << obj.szName << endl << "HP : " << obj.iHp << endl << "공격력 : " << obj.iAtk << endl;
 }
 
 bool CObj::Damage(OBJ enemy) {

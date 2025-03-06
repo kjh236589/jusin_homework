@@ -22,7 +22,8 @@ void CPlayer::Initialize()
 }
 
 void CPlayer::Print() {
-	cout << "이름 : " << obj.szName << endl << "HP : " << obj.iHp << endl << "공격력 : " << obj.iAtk << endl << "방어력 : " << iDef << endl << "==================================" << endl;
+	CObj::Print();
+	cout << "방어력 : " << iDef << endl << "==================================" << endl;
 }
 
 bool CPlayer::Damage(OBJ enemy) {

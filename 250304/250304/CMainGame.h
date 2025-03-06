@@ -18,6 +18,6 @@ public:
 private:
 	CPlayer* m_pPlayer;
 	CMonster* m_pMonster;
-	CShop* shop;
+	CShop* m_pShop;
 	GAME Game;
 };
