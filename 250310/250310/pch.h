@@ -6,14 +6,13 @@
 
 #ifndef PCH_H
 #define PCH_H
+
 #include <iostream>
 #include <vector>
-#include <list>
 #include <map>
+#include <array>
 
 using namespace std;
 
 
-// 여기에 미리 컴파일하려는 헤더 추가
-
-#endif //PC=
+#endif //PCH_H
