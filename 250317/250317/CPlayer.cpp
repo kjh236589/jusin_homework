@@ -62,17 +62,17 @@ void CPlayer::Key_Input()
 	{
 		m_tInfo.fY += m_fSpeed;
 	}
-	if (m_dwTime + 1000 < GetTickCount64()) {
+	if (m_dwTime + 500 < GetTickCount64()) {
 		if (GetAsyncKeyState('A')) {
 			m_pBulletList->push_back(Create_Bullet(-10.f, 0.f));
 		}
-		if (GetAsyncKeyState('D')) {
+		else if (GetAsyncKeyState('D')) {
 			m_pBulletList->push_back(Create_Bullet(10.f, 0.f));
 		}
-		if (GetAsyncKeyState('W')) {
+		else if (GetAsyncKeyState('W')) {
 			m_pBulletList->push_back(Create_Bullet(0.f, -10.f));
 		}
-		if (GetAsyncKeyState('S')) {
+		else if (GetAsyncKeyState('S')) {
 			m_pBulletList->push_back(Create_Bullet(0.f, 10.f));
 		}
 	}
