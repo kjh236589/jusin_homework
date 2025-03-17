@@ -19,7 +19,6 @@ void CMainGame::Initialize()
 
 void CMainGame::Update()
 {
-	Rectangle(m_hDC, -1, -1, WINCX + 1, WINCY + 1);
 	if (GetAsyncKeyState(VK_LEFT) && 0 < rc.left) {
 		rc.left -= 10;
 		rc.right -= 10;
@@ -39,16 +38,17 @@ void CMainGame::Update()
 	if (GetAsyncKeyState(VK_SPACE)) {
 		BulletList.push_back({ rc.left + 40, rc.top - 20, rc.right - 40, rc.top });
 	}
+}
+
+void CMainGame::Render()
+{
+	Rectangle(m_hDC, -1, -1, WINCX + 1, WINCY + 1);
 	for (auto& Bullet : BulletList) {
 		Ellipse(m_hDC, Bullet.left, Bullet.top, Bullet.right, Bullet.bottom);
 		Bullet.top -= 20;
 		Bullet.bottom -= 20;
 	}
 	Rectangle(m_hDC, rc.left, rc.top, rc.right, rc.bottom);
-}
-
-void CMainGame::Render()
-{
 }
 
 void CMainGame::Release()

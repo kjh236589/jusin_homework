@@ -162,7 +162,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     {
     case WM_CREATE:
 
-        SetTimer(hWnd, 0, 0, 0);
+        //SetTimer(hWnd, 0, 0, 0);
         // 타이머를 설치하는 함수
         // 2 : 타이머의 ID
         // 3 : 타이머 주기, 0을 지정할 경우 1 / 1000초의 주기를 생성
@@ -171,7 +171,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
     case WM_TIMER:
 
-        InvalidateRect(hWnd, 0, true);
+        //InvalidateRect(hWnd, 0, true);
 
         // InvalidateRect : 윈도우(창) 갱신 함수, 호출 시, WM_PAINT 메시지 발생
 
