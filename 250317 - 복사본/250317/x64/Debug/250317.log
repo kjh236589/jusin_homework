@@ -1,0 +1,26 @@
+﻿  CMainGame.cpp
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\250317 - 복사본\250317\CMainGame.cpp(36,11): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CMainGame.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\250317 - 복사본\250317\CMainGame.cpp(37,11): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CMainGame.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\250317 - 복사본\250317\CMainGame.cpp(55,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CMainGame.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\250317 - 복사본\250317\CMainGame.cpp(56,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CMainGame.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\250317 - 복사본\250317\CMainGame.cpp(72,45): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CMainGame.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\250317 - 복사본\250317\CMainGame.cpp(72,37): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CMainGame.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\250317 - 복사본\250317\CMainGame.cpp(72,29): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CMainGame.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\250317 - 복사본\250317\CMainGame.cpp(72,21): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CMainGame.cpp'을(를) 컴파일하는 중)
+  
+  250317.vcxproj -> C:\Users\kjh23\OneDrive\바탕 화면\쥬신\250317 - 복사본\x64\Debug\250317.exe

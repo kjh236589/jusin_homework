@@ -2,7 +2,7 @@
 #include "CMainGame.h"
 #include "CMonster.h"
 
-CMainGame::CMainGame() : m_pPlayer(nullptr), m_pMonster(nullptr), rc({})
+CMainGame::CMainGame() : m_pPlayer(nullptr), m_pMonster(nullptr), rc({}), x(0.f), y(0.f), z(50.f)
 {
 }
 
@@ -33,6 +33,12 @@ void CMainGame::Update()
 	m_pPlayer->Update();
 	if (m_pMonster) {
 		m_pMonster->Update();
+		float x = pow(m_pPlayer->Get_Info()->fX - m_pMonster->Get_Info()->fX , 2);
+		float y = pow(m_pPlayer->Get_Info()->fY - m_pMonster->Get_Info()->fY, 2);
+		float z = sqrtf(x + y);
+		if (z <= (m_pPlayer->Get_Info()->fCX / 2) + (m_pMonster->Get_Info()->fCX / 2)) {
+			Safe_Delete<CObj*>(m_pMonster);
+		}
 	}
 	for (auto& Bullet : m_BulletList) {
 		Bullet->Update();
@@ -46,6 +52,9 @@ void CMainGame::Update()
 			Safe_Delete<CObj*>(Bullet);
 			return true;
 		}return false; });
+		x = m_pPlayer->Get_Info()->fX + sin(m_pPlayer->Get_Info()->fCY + z);
+		y = m_pPlayer->Get_Info()->fY + sin(m_pPlayer->Get_Info()->fCX + z);
+		z += 1.f;
 }
 
 void CMainGame::Render()
@@ -60,6 +69,7 @@ void CMainGame::Render()
 	if (m_pMonster) {
 		m_pMonster->Render(m_hDC);
 	}
+	Rectangle(m_hDC, x - 10, y - 10, x + 10, y + 10);
 }
 
 void CMainGame::Release()
