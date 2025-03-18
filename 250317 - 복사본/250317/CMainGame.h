@@ -21,7 +21,6 @@ private:
 	list<CObj*> m_BulletList;
 	CObj* m_pMonster;
 	RECT rc;
-	float x, y, z;
 };
 
 // GetAsyncKeyState() 키 처리 함수

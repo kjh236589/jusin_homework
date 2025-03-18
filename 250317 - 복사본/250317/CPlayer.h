@@ -18,6 +18,7 @@ private:
 	void	 Key_Input();
 	CObj* Create_Bullet(float _fX, float _fY);
 	list<CObj*>* m_pBulletList;
-
+	float x, y, z;
+	bool left;
 	ULONGLONG		m_dwTime;
 };

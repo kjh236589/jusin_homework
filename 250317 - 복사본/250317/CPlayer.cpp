@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CPlayer.h"
 
-CPlayer::CPlayer() : m_pBulletList(nullptr), m_dwTime(GetTickCount64())
+CPlayer::CPlayer() : m_pBulletList(nullptr), m_dwTime(GetTickCount64()), x(0.f), y(0.f), z(100.f), left(true)
 {
 }
 
@@ -22,14 +22,40 @@ void CPlayer::Update()
 	__super::Update_Rect();
 
 	Key_Input();
+	x = Get_Info()->fX + (100 - z);
+	if (Get_Info()->fY <= y) {
+		y = Get_Info()->fY + sqrtf(pow(100, 2) - pow(100 - z, 2));
+	}
+	else {
+		y = Get_Info()->fY - sqrtf(pow(100, 2) - pow(100 - z, 2));
+	}
+
+	//x = Get_Info()->fX + (100 - z);
+	//if (left) {
+	//	y = Get_Info()->fY + sqrtf(pow(100, 2) - pow(100 - z, 2));
+	//	z += 1.f;
+	//	if (200.f <= z) {
+	//		left = false;
+	//	}
+	//}
+	//else {
+	//	y = Get_Info()->fY - sqrtf(pow(100, 2) - pow(100 - z, 2));
+	//	z -= 1.f;
+	//	if (0.f >= z) {
+	//		left = true;
+	//	}
+	//}
 
 }
 
 void CPlayer::Render(HDC hDC)
 {
+	MoveToEx(hDC, Get_Info()->fX, Get_Info()->fY, NULL);
+	LineTo(hDC, x, y);
 	Ellipse(hDC, 
 		m_tRect.left, m_tRect.top, 
 		m_tRect.right, m_tRect.bottom );
+
 }
 
 void CPlayer::Release()
@@ -46,11 +72,17 @@ void CPlayer::Key_Input()
 	if (GetAsyncKeyState(VK_RIGHT))
 	{
 		m_tInfo.fX += m_fSpeed;
+		if (100.f > x - Get_Info()->fX) {
+			z -= 10.f;
+		}
 	}
 
 	if (GetAsyncKeyState(VK_LEFT))
 	{
 		m_tInfo.fX -= m_fSpeed;
+		if (-100.f < x - Get_Info()->fX) {
+			z += 10.f;
+		}
 	}
 
 	if (GetAsyncKeyState(VK_UP))
@@ -74,6 +106,9 @@ void CPlayer::Key_Input()
 		}
 		else if (GetAsyncKeyState('S')) {
 			m_pBulletList->push_back(Create_Bullet(0.f, 10.f));
+		}
+		else if (GetAsyncKeyState(VK_SPACE)) {
+			m_pBulletList->push_back(Create_Bullet(x, y));
 		}
 	}
 
