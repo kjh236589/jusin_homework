@@ -14,6 +14,7 @@ extern HWND    g_hWnd;
 
 enum ITEM	{ BASIC, MACHINEGUN, SHOTGUN};
 enum OBJID		{OBJ_STAGE , OBJ_PLAYER, OBJ_BULLET, OBJ_MONSTER, OBJ_ITEM, OBJ_END };
+enum DIAGRAM { RECTANGLE, CIRCLE };
 
 
 template<typename T>

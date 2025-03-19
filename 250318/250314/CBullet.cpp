@@ -14,6 +14,7 @@ void CBullet::Initialize()
 {
 	m_tInfo.fCX = 10.f;
 	m_tInfo.fCY = 10.f;
+	m_tdiagram = CIRCLE;
 }
 
 int CBullet::Update()

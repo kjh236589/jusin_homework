@@ -15,6 +15,7 @@ void CBoom::Initialize()
 	m_tInfo.fCX = 10.f;
 	m_tInfo.fCY = 10.f;
 	m_fGravity = -10.f;
+	m_tdiagram = CIRCLE;
 }
 
 int CBoom::Update()

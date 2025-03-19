@@ -18,6 +18,7 @@ void CPlayer::Initialize()
 {
 	m_tInfo = { WINCX / 2.f, WINCY / 2.f, 100.f, 100.f };
 	m_fSpeed = 5.f;
+	m_tdiagram = CIRCLE;
 }
 
 int CPlayer::Update()

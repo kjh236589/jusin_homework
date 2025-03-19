@@ -11,6 +11,7 @@ public:
 public:
 	const INFO* Get_Info() { return &m_tInfo; }
 	const RECT* Get_Rect() { return &m_tRect; }
+	DIAGRAM Get_Diagram() { return m_tdiagram; }
 
 	void		Set_Pos(float _fX, float _fY)
 	{
@@ -38,6 +39,7 @@ public:
 protected:
 	INFO m_tInfo;
 	RECT m_tRect;
+	DIAGRAM m_tdiagram;
 
 	float m_fSpeed;
 	float m_fGravity;
