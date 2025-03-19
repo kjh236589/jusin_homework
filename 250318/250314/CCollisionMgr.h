@@ -6,6 +6,4 @@ class CCollisionMgr
 {
 public:
 	static bool	Collision_Rect(list<CObj*> DstList, list<CObj*> SrcList);
-
 };
-

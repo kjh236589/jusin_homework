@@ -40,6 +40,12 @@
     <Filter Include="01. Obj\03. Boom">
       <UniqueIdentifier>{dd171ce9-53da-4690-8814-41695824c447}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\04. Stage">
+      <UniqueIdentifier>{33d1473c-4352-4574-8038-3ff4b348ac70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\05. Item">
+      <UniqueIdentifier>{37cdea05-098c-444b-8282-ad9bd1c931ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -84,6 +90,12 @@
     <ClInclude Include="CBoom.h">
       <Filter>01. Obj\03. Boom</Filter>
     </ClInclude>
+    <ClInclude Include="CStage.h">
+      <Filter>01. Obj\04. Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CItem.h">
+      <Filter>01. Obj\05. Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="250314.cpp">
@@ -112,6 +124,12 @@
     </ClCompile>
     <ClCompile Include="CBoom.cpp">
       <Filter>01. Obj\03. Boom</Filter>
+    </ClCompile>
+    <ClCompile Include="CStage.cpp">
+      <Filter>01. Obj\04. Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CItem.cpp">
+      <Filter>01. Obj\05. Item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

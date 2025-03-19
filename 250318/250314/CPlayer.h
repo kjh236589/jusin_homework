@@ -10,7 +10,6 @@ public:
 	void		Set_BulletList(list<CObj*>* pBullet)
 	{
 		m_pBullet = pBullet;
-			 
 	}
 
 public:
@@ -19,13 +18,16 @@ public:
 	void Late_Update() override;
 	void Render(HDC hDC) override;
 	void Release() override;
+	void Set_Collision(CObj* p_obj) override;
+	void Set_Item(ITEM _item, int _bullets);
 
 private:
 	void	Key_Input();
+	void Update_Angle();
 	CObj* Create_Bullet();
-	int angle;
-	float theta;
-	bool left;
+	int angle, boom, bullets;
+	float theta, gunX, gunY;
+	bool left, b_jump;
 	ITEM item;
 	ULONG64   coolTime;
 	ULONG64   boomCoolTime;

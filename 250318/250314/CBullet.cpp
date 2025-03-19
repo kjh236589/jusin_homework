@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "CBullet.h"
+#include "CStage.h"
 
 CBullet::CBullet()
 {
@@ -54,4 +55,16 @@ void CBullet::SetSpeed(float _x, float _y)
 {
 	m_fSpeed = _x;
 	m_fYSpeed = _y;
+}
+
+void CBullet::Set_Collision(CObj* p_obj)
+{
+	if (nullptr != dynamic_cast<CStage*>(p_obj)) {
+		if (0.f < m_fYSpeed && m_tRect.bottom >= p_obj->Get_Rect()->top) {
+			m_bDead = true;
+		}
+	}
+	else {
+		m_bDead = true;
+	}
 }

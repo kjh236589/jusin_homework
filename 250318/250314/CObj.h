@@ -23,14 +23,14 @@ public:
 		m_tInfo.fCX = _fCX;
 		m_tInfo.fCY = _fCY;
 	}
-	void		Set_Dead() { m_bDead = true; }
 
 public:
-	virtual void	Initialize()PURE;
+	virtual void		Initialize()PURE;
 	virtual int		Update()PURE;
-	virtual void	Late_Update()PURE;	// UPDATE 연산이 끝난 이후
-	virtual void	Render(HDC hDC)PURE;
-	virtual void	Release()PURE;
+	virtual void		Late_Update()PURE;	// UPDATE 연산이 끝난 이후
+	virtual void		Render(HDC hDC)PURE;
+	virtual void		Release()PURE;
+	virtual void		Set_Collision(CObj* p_obj) { m_bDead = true; };
 
 public:
 	void		Update_Rect();

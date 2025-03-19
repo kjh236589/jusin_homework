@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "CBoom.h"
+#include "CStage.h"
 
 CBoom::CBoom()
 {
@@ -13,6 +14,7 @@ void CBoom::Initialize()
 {
 	m_tInfo.fCX = 10.f;
 	m_tInfo.fCY = 10.f;
+	m_fGravity = -10.f;
 }
 
 int CBoom::Update()
@@ -31,7 +33,6 @@ int CBoom::Update()
 	__super::Update_Rect();
 
 	m_tInfo.fX += m_fSpeed;
-	m_tInfo.fY += m_fYSpeed;
 	m_tInfo.fY += m_fGravity;
 	if (Get_Rect()->bottom <= WINCY) {
 		m_fGravity += 0.3f;
@@ -44,30 +45,14 @@ int CBoom::Update()
 	return NOEVENT;
 }
 
-void CBoom::Late_Update()
+void CBoom::Set_Collision(CObj* p_obj)
 {
-	if (0 >= m_tRect.left || WINCX <= m_tRect.right
-		|| 0 >= m_tRect.top || WINCY <= m_tRect.bottom)
-	{
+	if (nullptr != dynamic_cast<CStage*>(p_obj)) {
+		if (0.f < m_fGravity && m_tRect.bottom >= p_obj->Get_Rect()->top) {
+			m_bDead = true;
+		}
+	}
+	else {
 		m_bDead = true;
 	}
-}
-
-
-
-void CBoom::Render(HDC hDC)
-{
-	Ellipse(hDC,
-		m_tRect.left, m_tRect.top,
-		m_tRect.right, m_tRect.bottom);
-}
-
-void CBoom::Release()
-{
-}
-
-void CBoom::SetSpeed(float _x, float _y)
-{
-	m_fSpeed = _x;
-	m_fYSpeed = _y;
 }

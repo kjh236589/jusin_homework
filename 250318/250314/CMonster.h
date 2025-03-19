@@ -12,5 +12,8 @@ public:
 	void Late_Update() override;
 	void Render(HDC hDC) override;
 	void Release() override;
+	void Set_Collision(CObj* p_obj) override;
+private:
+	bool b_jump;
 };
 

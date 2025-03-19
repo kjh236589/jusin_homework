@@ -11,8 +11,8 @@ bool CCollisionMgr::Collision_Rect(list<CObj*> DstList, list<CObj*> SrcList)
 		{
 			if (IntersectRect(&rc, Dst->Get_Rect(), Src->Get_Rect()))
 			{
-				Dst->Set_Dead();
-				Src->Set_Dead();
+				Dst->Set_Collision(Src);
+				Src->Set_Collision(Dst);
 			}
 		}
 	}

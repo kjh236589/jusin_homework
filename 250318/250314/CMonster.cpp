@@ -1,7 +1,9 @@
 #include "pch.h"
 #include "CMonster.h"
+#include "CBullet.h"
+#include "CStage.h"
 
-CMonster::CMonster()
+CMonster::CMonster() : b_jump(false)
 {
 }
 
@@ -26,14 +28,13 @@ int CMonster::Update()
 	m_tInfo.fX += m_fSpeed;
 	__super::Update_Rect();
 	m_tInfo.fY += m_fGravity;
-	if (Get_Rect()->bottom <= WINCY) {
+	if (b_jump) {
 		m_fGravity += 0.1f;
 	}
 	else if (m_fGravity > 0.f) {
-		m_tInfo.fY = WINCY - (m_tInfo.fCY / 2.f) + 1;
 		m_fGravity = 0.f;
 	}
-
+	b_jump = true;
 	return NOEVENT;
 }
 
@@ -48,6 +49,17 @@ void CMonster::Render(HDC hDC)
 	Rectangle(hDC,
 		m_tRect.left, m_tRect.top,
 		m_tRect.right, m_tRect.bottom);
+}
+
+void CMonster::Set_Collision(CObj* p_obj) {
+	if (nullptr != dynamic_cast<CStage*>(p_obj)) {
+		if (0.f < m_fGravity && m_tRect.bottom >= p_obj->Get_Rect()->top && m_tRect.bottom - 10.f <= p_obj->Get_Rect()->top) {
+			b_jump = false;
+			m_tInfo.fY = (p_obj->Get_Rect()->top) - (m_tInfo.fCY / 2.f) + 1;
+		}
+	}else if (nullptr != dynamic_cast<CBullet*>(p_obj)) {
+		m_bDead = true;
+	}
 }
 
 void CMonster::Release()
