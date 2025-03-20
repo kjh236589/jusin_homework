@@ -34,7 +34,7 @@ bool CCollisionMgr::Collision_Rect(list<CObj*> DstList, list<CObj*> SrcList)
 						Src->Set_Collision(Dst);
 					}
 				}
-				else if (sqrt(pow(Dst->Get_Info()->fX - Src->Get_Info()->fX, 2) + pow(Dst->Get_Info()->fY - Src->Get_Info()->fY, 2)) <= (Dst->Get_Info()->fCX / 2) + (Src->Get_Info()->fCX / 2)) {
+				else if (sqrtf(powf(Dst->Get_Info()->fX - Src->Get_Info()->fX, 2) + powf(Dst->Get_Info()->fY - Src->Get_Info()->fY, 2)) <= (Dst->Get_Info()->fCX + Src->Get_Info()->fCX) * 0.5f) {
 					Dst->Set_Collision(Src);
 					Src->Set_Collision(Dst);
 				}

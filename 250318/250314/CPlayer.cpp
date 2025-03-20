@@ -2,7 +2,7 @@
 #include "CPlayer.h"
 #include "CBullet.h"
 #include "CBoom.h"
-#include "CStage.h"
+#include "CMap.h"
 #include "CAbstractFactory.h"
 
 CPlayer::CPlayer() : m_pBullet(nullptr), left(false), b_jump(false), coolTime(GetTickCount64()), boomCoolTime(GetTickCount64()), item(BASIC), angle(0), boom(10), bullets(0), theta(0.f), gunX(0.f), gunY(0.f)
@@ -65,8 +65,8 @@ void CPlayer::Release()
 
 void CPlayer::Set_Collision(CObj* p_obj)
 {
-	if (nullptr != dynamic_cast<CStage*>(p_obj)) {
-		if (0.f <= m_fGravity && m_tRect.bottom >= p_obj->Get_Rect()->top && (m_fGravity == 0.f || m_tRect.bottom - (m_fGravity * 2.f) <= p_obj->Get_Rect()->top)) {
+	if (nullptr != dynamic_cast<CMap*>(p_obj)) {
+		if (0.f <= m_fGravity && m_tRect.bottom >= p_obj->Get_Rect()->top && (/*m_fGravity == 0.f || */m_tRect.bottom - (m_fGravity * 2.f) <= p_obj->Get_Rect()->top)) {
 			b_jump = false;
 			m_tInfo.fY = (p_obj->Get_Rect()->top) - (m_tInfo.fCY / 2.f) + 1;
 		}
@@ -86,73 +86,75 @@ void CPlayer::Key_Input()
 		m_tInfo.fX += m_fSpeed;
 
 		left = false;
-		if (angle == 180) {
-			angle = 0;
-		}
-		if (angle == 270) {
-			angle = -90;
-		}
+		//if (angle == 180) {
+		//	angle = 0;
+		//}
+		//if (angle == 270) {
+		//	angle = -90;
+		//}
 	}
 	if (GetAsyncKeyState(VK_LEFT))
 	{
 		m_tInfo.fX -= m_fSpeed;
 		left = true;
-		if (angle == 0) {
-			angle = 180;
-		}
-		if (angle == -90) {
-			angle = 270;
-		}
+		//if (angle == 0) {
+		//	angle = 180;
+		//}
+		//if (angle == -90) {
+		//	angle = 270;
+		//}
 	}
 	if (GetAsyncKeyState(VK_UP))
 	{
-		if (90 >= angle && -90 < angle) {
-			angle -= 10;
-		}
-		else if (90 < angle && 270 > angle) {
-			angle += 10;
-		}
+		m_tInfo.fY -= m_fSpeed;
+		//if (90 >= angle && -90 < angle) {
+		//	angle -= 10;
+		//}
+		//else if (90 < angle && 270 > angle) {
+		//	angle += 10;
+		//}
 	}
 	else {
-		if (180 < angle) {
-			angle -= 10;
-		}
-		else if (0 > angle) {
-			angle += 10;
-		}
+		//if (180 < angle) {
+		//	angle -= 10;
+		//}
+		//else if (0 > angle) {
+		//	angle += 10;
+		//}
 	}
 
 	if (GetAsyncKeyState(VK_DOWN) && b_jump)
 	{
-		if (270 >= angle && 90 < angle) {
-			angle -= 10;
-		}
-		else if (-90 < angle && 90 > angle) {
-			angle += 10;
-		}
+		m_tInfo.fY += m_fSpeed;
+		//if (270 >= angle && 90 < angle) {
+		//	angle -= 10;
+		//}
+		//else if (-90 < angle && 90 > angle) {
+		//	angle += 10;
+		//}
 	}
 	else {
-		if ((180 > angle && 90 < angle) || (90 == angle && left)) {
-			angle += 10;
-		}
-		else if (0 < angle && 90 >= angle) {
-			angle -= 10;
-		}
+		//if ((180 > angle && 90 < angle) || (90 == angle && left)) {
+		//	angle += 10;
+		//}
+		//else if (0 < angle && 90 >= angle) {
+		//	angle -= 10;
+		//}
 	}
 
-	if (GetAsyncKeyState(VK_SPACE) && !b_jump)
-	{
-		if (GetAsyncKeyState(VK_DOWN))
-		{
-			m_tInfo.fY += 6.f;
-			__super::Update_Rect();
-			m_fGravity = 3.f;
-		}
-		else {
-			m_fGravity = -6.f;
-		}
-		b_jump = true;
-	}
+	//if (GetAsyncKeyState(VK_SPACE) && !b_jump)
+	//{
+	//	if (GetAsyncKeyState(VK_DOWN))
+	//	{
+	//		m_tInfo.fY += 6.f;
+	//		__super::Update_Rect();
+	//		m_fGravity = 3.f;
+	//	}
+	//	else {
+	//		m_fGravity = -6.f;
+	//	}
+	//	b_jump = true;
+	//}
 
 	if (GetAsyncKeyState('Z'))
 	{
@@ -199,13 +201,13 @@ void CPlayer::Key_Input()
 void CPlayer::Update_Angle()
 {
 	theta = angle * (PI / 180);
-	gunX = Get_Info()->fX + (cos(theta) * 100.f);
-	gunY = Get_Info()->fY + (sin(theta) * 100.f);
+	gunX = Get_Info()->fX + (cosf(theta) * 100.f);
+	gunY = Get_Info()->fY - (sinf(theta) * 100.f);
 }
 
 CObj* CPlayer::Create_Bullet()
 {
-	CObj* pBullet = CAbstractFactory<CBullet>::Create_Obj(100.f * cos(theta) + Get_Info()->fX, 100 * sin(theta) + Get_Info()->fY);
+	CObj* pBullet = CAbstractFactory<CBullet>::Create_Obj(100.f * cosf(theta) + Get_Info()->fX, 100 * sinf(theta) - Get_Info()->fY);
 	return pBullet;
 }
 

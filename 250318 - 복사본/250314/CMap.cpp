@@ -1,42 +1,42 @@
 #include "pch.h"
-#include "CStage.h"
+#include "CMap.h"
 
-CStage::CStage()
+CMap::CMap()
 {
 }
 
-CStage::~CStage()
+CMap::~CMap()
 {
 	Release();
 }
 
-void CStage::Initialize()
+void CMap::Initialize()
 {
 	m_tInfo.fCX = 600.f;
 	m_tInfo.fCY = 40.f;
 }
 
-int CStage::Update()
+int CMap::Update()
 {
 	__super::Update_Rect();
 	return 0;
 }
 
-void CStage::Late_Update()
+void CMap::Late_Update()
 {
 }
 
-void CStage::Render(HDC hDC)
+void CMap::Render(HDC hDC)
 {
 	Rectangle(hDC,
 		m_tRect.left, m_tRect.top,
 		m_tRect.right, m_tRect.bottom);
 }
 
-void CStage::Release()
+void CMap::Release()
 {
 }
 
-void CStage::Set_Collision(CObj* p_obj)
+void CMap::Set_Collision(CObj* p_obj)
 {
 }

@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CMonster.h"
 #include "CBullet.h"
-#include "CStage.h"
+#include "CMap.h"
 
 CMonster::CMonster() : b_jump(false)
 {
@@ -52,7 +52,7 @@ void CMonster::Render(HDC hDC)
 }
 
 void CMonster::Set_Collision(CObj* p_obj) {
-	if (nullptr != dynamic_cast<CStage*>(p_obj)) {
+	if (nullptr != dynamic_cast<CMap*>(p_obj)) {
 		if (0.f < m_fGravity && m_tRect.bottom >= p_obj->Get_Rect()->top && m_tRect.bottom - 10.f <= p_obj->Get_Rect()->top) {
 			b_jump = false;
 			m_tInfo.fY = (p_obj->Get_Rect()->top) - (m_tInfo.fCY / 2.f) + 1;

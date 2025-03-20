@@ -1,10 +1,9 @@
 #pragma once
 #include "CObj.h"
-class CStage : public CObj
-{
+class CItem : public CObj {
 public:
-	CStage();
-	virtual ~CStage();
+	CItem();
+	virtual ~CItem();
 
 public:
 	void Initialize() override;
@@ -14,6 +13,6 @@ public:
 	void Release() override;
 	void Set_Collision(CObj* p_obj) override;
 private:
-	bool b_jump;
+	ITEM item;
+	int Bullets;
 };
-
