@@ -34,17 +34,23 @@
     <Filter Include="01. Obj\01. Bullet">
       <UniqueIdentifier>{f028a98d-4b0c-4fc8-bbaa-c751b18b1bd3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\01. Bullet\00. Boom">
+      <UniqueIdentifier>{dd171ce9-53da-4690-8814-41695824c447}</UniqueIdentifier>
+    </Filter>
     <Filter Include="01. Obj\02. Monster">
       <UniqueIdentifier>{7244e485-a2c6-433d-a8f5-f6287e7ab041}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\03. Boom">
-      <UniqueIdentifier>{dd171ce9-53da-4690-8814-41695824c447}</UniqueIdentifier>
+    <Filter Include="01. Obj\03. Map">
+      <UniqueIdentifier>{33d1473c-4352-4574-8038-3ff4b348ac70}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\05. Item">
+    <Filter Include="01. Obj\04. Item">
       <UniqueIdentifier>{37cdea05-098c-444b-8282-ad9bd1c931ff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\04. Map">
-      <UniqueIdentifier>{33d1473c-4352-4574-8038-3ff4b348ac70}</UniqueIdentifier>
+    <Filter Include="01. Obj\02. Monster\00. Boss">
+      <UniqueIdentifier>{9fbdc9c9-32ff-4aab-ba5d-11fd6126c2cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Bullet\01. CircleBullet">
+      <UniqueIdentifier>{90d11da4-4801-4b9a-8ae4-e39ac811432b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -85,16 +91,22 @@
       <Filter>02. Design\CollisionMgr</Filter>
     </ClInclude>
     <ClInclude Include="CBoom.h">
-      <Filter>01. Obj\03. Boom</Filter>
+      <Filter>01. Obj\01. Bullet\00. Boom</Filter>
     </ClInclude>
     <ClInclude Include="CMap.h">
-      <Filter>01. Obj\04. Map</Filter>
+      <Filter>01. Obj\03. Map</Filter>
     </ClInclude>
     <ClInclude Include="CItem.h">
-      <Filter>01. Obj\05. Item</Filter>
+      <Filter>01. Obj\04. Item</Filter>
     </ClInclude>
     <ClInclude Include="CMainGame.h">
       <Filter>00. MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="CBoss.h">
+      <Filter>01. Obj\02. Monster\00. Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="CCircleBullet.h">
+      <Filter>01. Obj\01. Bullet\01. CircleBullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -123,13 +135,19 @@
       <Filter>02. Design\CollisionMgr</Filter>
     </ClCompile>
     <ClCompile Include="CBoom.cpp">
-      <Filter>01. Obj\03. Boom</Filter>
+      <Filter>01. Obj\01. Bullet\00. Boom</Filter>
     </ClCompile>
     <ClCompile Include="CMap.cpp">
-      <Filter>01. Obj\04. Map</Filter>
+      <Filter>01. Obj\03. Map</Filter>
     </ClCompile>
     <ClCompile Include="CItem.cpp">
-      <Filter>01. Obj\05. Item</Filter>
+      <Filter>01. Obj\04. Item</Filter>
+    </ClCompile>
+    <ClCompile Include="CBoss.cpp">
+      <Filter>01. Obj\02. Monster\00. Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="CCircleBullet.cpp">
+      <Filter>01. Obj\01. Bullet\01. CircleBullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

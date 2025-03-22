@@ -10,10 +10,10 @@ public:
 	void Initialize() override;
 	int Update() override;
 	void Late_Update() override;
-	void Render(HDC hDC) override;
 	void Release() override;
-	void Set_Collision(CObj* p_obj) override;
+	void Set_Pass(bool _bPass) { b_Pass = _bPass; }
+	bool Get_Pass() { return b_Pass; }
 private:
-	bool b_jump;
+	bool b_Pass;
 };
 

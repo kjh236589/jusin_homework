@@ -17,6 +17,9 @@ public:
 	void		Release();
 
 private:
+
+	CObj* Create_Map(float _fX, float _fY, float _fCX, float _fCY, bool _bPass);
+
 	HDC		m_hDC;
 
 	// CObj*			m_pPlayer;
@@ -25,7 +28,7 @@ private:
 	list<CObj*>		m_ObjList[3][OBJ_END];
 
 	ULONGLONG		m_dwTime;
-	int			m_iFPS, game;
+	int			m_iFPS, game, i_Coin;
 	TCHAR		m_szFPS[32];
 
 };

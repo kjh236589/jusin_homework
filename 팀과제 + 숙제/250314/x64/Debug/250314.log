@@ -1,2 +1,41 @@
-﻿  CMainGame.cpp
-  250314.vcxproj -> C:\Users\kjh23\OneDrive\바탕 화면\쥬신\250318 - 복사본\x64\Debug\250314.exe
+﻿  CBoss.cpp
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\팀과제 + 숙제\250314\CBoss.cpp(38,24): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBoss.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\팀과제 + 숙제\250314\CBoss.cpp(39,24): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBoss.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\팀과제 + 숙제\250314\CBoss.cpp(52,26): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBoss.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\팀과제 + 숙제\250314\CBoss.cpp(53,26): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBoss.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\팀과제 + 숙제\250314\CBoss.cpp(56,26): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBoss.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\팀과제 + 숙제\250314\CBoss.cpp(57,26): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBoss.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\팀과제 + 숙제\250314\CBoss.cpp(60,26): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBoss.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\팀과제 + 숙제\250314\CBoss.cpp(61,26): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBoss.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\팀과제 + 숙제\250314\CBoss.cpp(62,35): warning C4244: '=': 'float'에서 'ULONGLONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBoss.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\팀과제 + 숙제\250314\CBoss.cpp(89,36): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBoss.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\팀과제 + 숙제\250314\CBoss.cpp(89,24): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBoss.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\팀과제 + 숙제\250314\CBoss.cpp(90,24): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBoss.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\kjh23\OneDrive\바탕 화면\쥬신\팀과제 + 숙제\250314\CBoss.cpp(90,15): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBoss.cpp'을(를) 컴파일하는 중)
+  
+  250314.vcxproj -> C:\Users\kjh23\OneDrive\바탕 화면\쥬신\팀과제 + 숙제\x64\Debug\250314.exe

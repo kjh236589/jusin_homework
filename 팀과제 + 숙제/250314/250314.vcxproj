@@ -138,7 +138,9 @@
     <ClInclude Include="250314.h" />
     <ClInclude Include="CAbstractFactory.h" />
     <ClInclude Include="CBoom.h" />
+    <ClInclude Include="CBoss.h" />
     <ClInclude Include="CBullet.h" />
+    <ClInclude Include="CCircleBullet.h" />
     <ClInclude Include="CCollisionMgr.h" />
     <ClInclude Include="CItem.h" />
     <ClInclude Include="CMainGame.h" />
@@ -155,7 +157,9 @@
   <ItemGroup>
     <ClCompile Include="250314.cpp" />
     <ClCompile Include="CBoom.cpp" />
+    <ClCompile Include="CBoss.cpp" />
     <ClCompile Include="CBullet.cpp" />
+    <ClCompile Include="CCircleBullet.cpp" />
     <ClCompile Include="CCollisionMgr.cpp" />
     <ClCompile Include="CItem.cpp" />
     <ClCompile Include="CMainGame.cpp" />

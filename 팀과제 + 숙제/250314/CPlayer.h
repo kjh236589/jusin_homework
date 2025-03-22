@@ -11,6 +11,10 @@ public:
 	{
 		m_pBullet = pBullet;
 	}
+	//void		Set_Monster(list<CObj*>* pMonster)
+	//{
+	//	m_pMonster = pMonster;
+	//}
 
 public:
 	void Initialize() override;
@@ -24,15 +28,16 @@ public:
 private:
 	void	Key_Input();
 	void Update_Angle();
-	CObj* Create_Bullet();
+	CObj* Create_Bullet(float _fSize, float _fSpeed, int _iDamage);
 	int angle, angle2, boom, bullets;
 	float theta, gunX, gunY;
-	bool left, b_jump;
+	bool left, b_jump, b_Pass;
 	ITEM item;
 	ULONG64   coolTime;
 	ULONG64   boomCoolTime;
 
 private:
 	list<CObj*>*			m_pBullet;
+	//list<CObj*>*			m_pMonster;
 };
 

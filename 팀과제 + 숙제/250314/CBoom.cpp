@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "CBoom.h"
 #include "CMap.h"
+#include "CMonster.h"
+#include "CPlayer.h"
 
 CBoom::CBoom()
 {
@@ -12,10 +14,8 @@ CBoom::~CBoom()
 
 void CBoom::Initialize()
 {
-	m_tInfo.fCX = 10.f;
-	m_tInfo.fCY = 10.f;
 	m_fGravity = -10.f;
-	m_tdiagram = CIRCLE;
+	i_Damage = 5;
 }
 
 int CBoom::Update()
@@ -53,7 +53,16 @@ void CBoom::Set_Collision(CObj* p_obj)
 			m_bDead = true;
 		}
 	}
-	else {
+	else  if (nullptr != dynamic_cast<CMonster*>(p_obj) && 0 < i_Damage) {
+		i_Damage = 0;
 		m_bDead = true;
 	}
+	else if (nullptr != dynamic_cast<CPlayer*>(p_obj) && 0 > i_Damage) {
+		m_bDead = true;
+	}
+}
+
+int CBoom::Get_Damage()
+{
+	return i_Damage;
 }

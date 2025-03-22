@@ -10,4 +10,5 @@ public:
 	void Initialize() override;
 	int Update() override;
 	void Set_Collision(CObj* p_obj) override;
+	int Get_Damage() override;
 };
